@@ -40,9 +40,10 @@ Yes, `@After` still runs even if a test fails or crashes, acting exactly like a 
 [INFO] 
 [INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0
 ```
-
-**Failing Test Screenshot:**
-*[Insert your screenshot of the red terminal output here showing the intentional failure of saveCourse_shouldReturnAlreadyExists_whenCodeIsDuplicate]*
+**Success Test:**
+![Alt Text](https://github.com/Clovie8/Unity-Testing/blob/main/Success%20of%20Test%20Course%20Management%20System.png)
+**Fail Test:**
+![Alt Text](https://github.com/Clovie8/Unity-Testing/blob/main/Fail%20of%20Test%20Course%20Management%20System.png)
 
 ---
 
@@ -81,5 +82,7 @@ Yes, `@After` still runs even if a test fails or crashes, acting exactly like a 
 
 ```
 
-**Failing Test Screenshot:**
-*[Insert your screenshot of the red terminal output here showing the intentional failure when modifying the math logic]*
+**Success Test:**
+![Alt Text](https://github.com/Clovie8/Unity-Testing/blob/main/Success%20of%20Test%20of%20teach%20payroll.png)
+**Fail Test:**
+![Alt Text](https://github.com/Clovie8/Unity-Testing/blob/main/Fail%20of%20Test%20of%20teach%20payroll.png)
