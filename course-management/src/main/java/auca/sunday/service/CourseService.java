@@ -10,29 +10,33 @@ public class CourseService {
     private List<Course> courseList = new ArrayList<>();
 
     public String saveCourse(Course c) {
+        // null  course rejected 
         if (c == null) {
             return "provide course data";
         }
 
-        // Rule: duplicate courseCode (ignore case) rejected
+        // duplicate courseCode (ignore case) rejected
         if (searchByCourseCode(c.getCourseCode()) != null) {
             return "course already exists";
         }
 
-        // Rule: credits must be between 1 and 18
-        if (c.getCredits() < 1 || c.getCredits() > 18) {
+        // credits must be between 1 and 5
+        if (c.getCredits() < 1 || c.getCredits() > 5) {
             return "invalid credits";
         }
-
+        
+        // valid course 
         courseList.add(c);
         return "course saved successfully";
     }
 
     public Course searchByCourseCode(String code) {
+        // not found or null  code 
         if (code == null) {
             return null;
         }
 
+        // found 
         for (Course course : courseList) {
             if (course.getCourseCode().equalsIgnoreCase(code)) {
                 return course;
@@ -43,12 +47,14 @@ public class CourseService {
 
     public String deleteCourse(String code) {
         Course courseToDelete = searchByCourseCode(code);
-
+        
+        // found and removed 
         if (courseToDelete != null) {
             courseList.remove(courseToDelete);
             return "course deleted";
         }
-
+        
+        // not found 
         return "course not found";
     }
 }
