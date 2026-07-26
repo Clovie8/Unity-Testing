@@ -16,26 +16,21 @@ public class PayrollServiceTest {
     private static Teacher seniorLecturer;
     private static Teacher professor;
 
-    // Task 1 Explanation:
-    // We cannot use assertEquals(expected, actual) for doubles because floating-point 
-    // arithmetic in computers is inherently imprecise (e.g., 0.1 + 0.2 might yield 0.300000000004). 
-    // The 'delta' parameter defines the maximum acceptable difference between the expected and actual values.
-    // We use a delta of 0.001 because for payroll (money), accuracy to the third decimal place is sufficient.
     private static final double DELTA = 0.001;
 
-    // Task 3: Load test teachers once using @BeforeClass (static)
+    // Load test teachers once using @BeforeClass (static)
     @BeforeClass
     public static void setUpClass() {
         service = new PayrollService();
         
-        // Base setup: All work exactly 100 hours at 10,000 RWF to easily test bonuses
+        // All work exactly 100 hours at 10,000 RWF to easily test bonuses
         assistant = new Teacher("T1", "Alice", 10000, 100, TeacherCategory.ASSISTANT);
         lecturer = new Teacher("T2", "Bob", 10000, 100, TeacherCategory.LECTURER);
         seniorLecturer = new Teacher("T3", "Charlie", 10000, 100, TeacherCategory.SENIOR_LECTURER);
         professor = new Teacher("T4", "Diana", 10000, 100, TeacherCategory.PROFESSOR);
     }
 
-    // --- Task 2: Exact Boundary Tests (159, 160, 161 hours) ---
+    // Task 2: Exact Boundary Tests (159, 160, 161 hours) ---
 
     // Expected: 159 hours * 10,000 = 1,590,000 (No overtime)
     @Test
@@ -58,7 +53,7 @@ public class PayrollServiceTest {
         assertEquals(1615000.0, service.calculatePay(t), DELTA);
     }
 
-    // --- Task 3: Category Bonus Tests ---
+    // Task 3: Category Bonus Tests ---
 
     // Expected: 100 * 10,000 = 1,000,000 + 0% bonus = 1,000,000
     @Test
@@ -84,7 +79,7 @@ public class PayrollServiceTest {
         assertEquals(1150000.0, service.calculatePay(professor), DELTA);
     }
 
-    // --- Task 4: Exception Tests ---
+    // Task 4: Exception Tests ---
 
     @Test(expected = IllegalArgumentException.class)
     public void calculatePay_shouldThrow_whenHoursAreNegative() {
