@@ -11,7 +11,7 @@ public class CourseServiceTest {
 
     private CourseService service;
 
-    // Testing Task 1: Use @Before to create a clean state with two known courses
+    // Use @Before to create a clean state with two known courses
     @Before
     public void setUp() {
         service = new CourseService();
@@ -19,8 +19,7 @@ public class CourseServiceTest {
         service.saveCourse(new Course("ENG201", "General English", 2, 30));
     }
 
-    // --- Tests for saveCourse() ---
-
+    // Tests for saveCourse() 
     @Test
     public void saveCourse_shouldReturnProvideCourseData_whenCourseIsNull() {
         String result = service.saveCourse(null);
@@ -55,7 +54,7 @@ public class CourseServiceTest {
         assertEquals("course saved successfully", result);
     }
 
-    // --- Tests for searchByCourseCode() ---
+    // Tests for searchByCourseCode() 
 
     @Test
     public void searchByCourseCode_shouldReturnCourse_whenCodeIsFound() {
@@ -79,7 +78,7 @@ public class CourseServiceTest {
         assertNull(service.searchByCourseCode(null));
     }
 
-    // --- Tests for deleteCourse() ---
+    // Tests for deleteCourse() 
 
     @Test
     public void deleteCourse_shouldReturnCourseDeleted_whenFoundAndRemoved() {
